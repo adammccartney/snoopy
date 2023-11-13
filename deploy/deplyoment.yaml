@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8sclient-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: k8sclient-test
+  template:
+    metadata:
+      labels:
+        app: k8sclient-test
+    spec:
+      containers:
+        - name: k8sclient-test
+          image: s210.dl.hpc.tuwien.ac.at/snoopy/k8sclient-test:latest
+            #command: ["/bin/sh", "-c"]
+            #args: ["sleep 10000"]
